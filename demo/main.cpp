@@ -1,11 +1,14 @@
 #include "SharedPtr.hpp"
 
 int main() {
-  auto* ptri = new int(1);
-  SharedPtr ptr(ptri);
-  SharedPtr ptr2(ptr);
-  std::cout << *ptr2 << " " << ptr2.get() << " " << ptr2.use_count() << std::endl;
-  ptr2.reset();
-  std::cout << *ptr << " " << ptr.get() << " " << ptr.use_count();
+  int buff_int = 5067;
+  auto *ptr_int = new int(buff_int);
+
+  auto shared_ptr_int = SharedPtr<int>(ptr_int);
+  auto shared_ptr_null = SharedPtr<int>();
+
+  shared_ptr_null.reset(ptr_int);
+  shared_ptr_int.reset();
+
   return 0;
 }

@@ -130,16 +130,16 @@ TEST(SharedPtr, swap) {
   EXPECT_EQ(shared_ptr_null.get(), ptr_int);
 }
 
-//TEST(SharedPtr, reset) {
-//  int buff_int = 5067;
-//  auto *ptr_int = new int(buff_int);
-//
-//  auto shared_ptr_int = SharedPtr<int>(ptr_int);
-//  auto shared_ptr_null = SharedPtr<int>();
-//
-//  shared_ptr_null.reset(ptr_int);
-//  shared_ptr_int.reset();
-//
-//  EXPECT_EQ(shared_ptr_int.get(), nullptr);
-//  EXPECT_EQ(shared_ptr_null.get(), ptr_int);
-//}
+TEST(SharedPtr, reset) {
+  int buff_int = 5067;
+  auto *ptr_int = new int(buff_int);
+
+  auto shared_ptr_int = SharedPtr<int>(ptr_int);
+  auto shared_ptr_null = SharedPtr<int>();
+
+  shared_ptr_null.reset(ptr_int);
+  shared_ptr_int.reset();
+
+  EXPECT_EQ(shared_ptr_int.get(), nullptr);
+  EXPECT_EQ(shared_ptr_null.get(), ptr_int);
+}
