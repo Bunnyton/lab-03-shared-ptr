@@ -37,13 +37,13 @@ class SharedPtr {
   }
 
   ~SharedPtr() {
-    if (_ptr == nullptr) return;
-
-    if (_count->load() == 1) {
-      delete _ptr;
-      delete _count;
-    } else {
-      (*_count)--;
+    if (_ptr) {
+      if (_count->load() == 1) {
+        delete _ptr;
+        delete _count;
+      } else {
+        (*_count)--;
+      }
     }
   }
 
