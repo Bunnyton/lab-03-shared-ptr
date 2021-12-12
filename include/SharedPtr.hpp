@@ -1,7 +1,7 @@
 // Copyright 2021 Galaktionov Andrey <galaktionovaa@student.bmstu.ru>
 
-#ifndef INCLUDE_SHAREDPTR_HPP
-#define INCLUDE_SHAREDPTR_HPP
+#ifndef INCLUDE_SHAREDPTR_HPP_
+#define INCLUDE_SHAREDPTR_HPP_
 
 #include <atomic>
 #include <iostream>
@@ -136,4 +136,4 @@ class SharedPtr {
   }
 };
 
-#endif  // INCLUDE_SHAREDPTR_HPP
+#endif  // INCLUDE_SHAREDPTR_HPP_
