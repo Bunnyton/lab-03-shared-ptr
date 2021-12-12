@@ -18,7 +18,7 @@ class SharedPtr {
 
 
   explicit SharedPtr(T* ptr) : _ptr(ptr) {
-    if (ptr != nullptr) _count = new std::atomic_uint(1);
+    if (ptr) _count = new std::atomic_uint(1);
   }
 
   SharedPtr(const SharedPtr& r) {
@@ -96,11 +96,13 @@ class SharedPtr {
   auto get() -> T* { return _ptr; }
 
   void reset() {
+    if (_ptr) delete _count;
     _ptr = nullptr;
     _count = nullptr;
   }
 
   void reset(T* ptr) {
+    if (_ptr) delete _count;
     _ptr = ptr;
     _count = new std::atomic_uint(1);
   }
